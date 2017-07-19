@@ -1,0 +1,48 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0", :name => "viewport"}/
+    %title= @title || 'CoMaaS'
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    .ui.large.top.fixed.hidden.menu
+      .ui.container
+        = render 'share/nav'
+        .right.menu
+          = render 'share/login'
+    .pusher
+      .ui.inverted.vertical.center.aligned.segment
+        .ui.container
+          .ui.large.secondary.inverted.pointing.menu
+            = render 'share/nav'
+            .right.item
+              = render 'share/login'
+      = yield
+      .ui.inverted.vertical.footer.segment
+        .ui.container
+          .ui.stackable.inverted.divided.equal.height.stackable.grid
+            .three.wide.column
+              %h4.ui.inverted.header About
+              .ui.inverted.link.list
+                .item
+                  %i.phone.icon
+                  %a.content(href='tel://+8675523456789') +86 755 23456789
+                .item
+                  %i.mail.icon
+                  %a.content info@comaas.cc
+                %a.item{:href => "#"} Religious Ceremonies
+                %a.item{:href => "#"} Gazebo Plans
+            .three.wide.column
+              %h4.ui.inverted.header Services
+              .ui.inverted.link.list
+                %a.item{:href => "#"} Banana Pre-Order
+                %a.item{:href => "#"} DNA FAQ
+                %a.item{:href => "#"} How To Access
+                %a.item{:href => "#"} Favorite X-Men
+            .seven.wide.column
+              %h4.ui.inverted.header Footer Header
+              %p Extra space for a call to action inside the footer that could help re-engage users.
